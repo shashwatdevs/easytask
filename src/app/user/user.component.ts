@@ -30,10 +30,12 @@ export class UserComponent {
   avatar = input.required<string>();
   name = input.required<string>();
 
-  get imagePath(){
-    return 'assets/users/' + this.avatar();
-  }
+  // get imagePath(){
+  //   return 'assets/users/' + this.avatar();
+  // }
 
+  imagePath = computed(()=> 'assets/users/' + this.avatar() );
+  
   onSelectUser(){
 
   }
