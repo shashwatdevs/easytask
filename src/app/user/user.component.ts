@@ -18,8 +18,8 @@ export class UserComponent {
   }
 
   onSelectUser() {
-    // return 'assets/users/' + this.selectedUser.avatar;
-    console.log("clickked");
+    const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length)
+    this.selectedUser = DUMMY_USERS[randomIndex];
   }
 
 }
