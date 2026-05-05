@@ -1,4 +1,4 @@
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, Input, signal, input } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { required } from '@angular/forms/signals';
 
@@ -24,11 +24,14 @@ export class UserComponent {
   //   this.selectedUser.set(DUMMY_USERS[randomIndex]);
   // }
 
-  @Input({required:true}) avatar!: string;
-  @Input({required:true}) name!: string;
+  // @Input({required:true}) avatar!: string;
+  // @Input({required:true}) name!: string;
+
+  avatar = input.required<string>();
+  name = input.required<string>();
 
   get imagePath(){
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.avatar();
   }
 
   onSelectUser(){
