@@ -2,6 +2,12 @@ import { Component, computed, Input, signal, input, Output, EventEmitter, output
 import { DUMMY_USERS } from '../dummy-users';
 import { required } from '@angular/forms/signals';
 
+type User  = { 
+  id:string, 
+  avatar:string, 
+  name: string
+};
+
 // const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length);
 @Component({
   selector: 'app-user',
@@ -16,7 +22,7 @@ export class UserComponent {
   // @Input({required:true}) avatar!: string;
   // @Input({required:true}) name!: string;
 
-   @Input({required:true}) user!: {id:string, avatar:string, name: string};
+   @Input({required:true}) user!: User;
 
   @Output() select = new EventEmitter<string>();
 
