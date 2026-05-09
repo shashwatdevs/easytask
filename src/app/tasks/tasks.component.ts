@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { TaskComponent} from "./task/task.component";
+import { TaskComponent } from "./task/task.component";
 import { NewTaskComponent } from './new-task/new-task.component';
-import { DUMMY_TASKS } from '../dummy-tasks';
 import { NewAddTask } from './task/task.model';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,42 +12,44 @@ import { NewAddTask } from './task/task.model';
 })
 export class TasksComponent {
 
+  // private tasksService = new TasksService();
+  
+  // Dependency Injection
+  // private tasksService: TasksService;
+  // constructor(tasksService: TasksService) {
+  //   this.tasksService = tasksService;
+  // }
+
+  // Alternative Way
+  constructor(private tasksService: TasksService) {}
+
   // @Input() name?:string;
 
   // Alternative syntax
-  @Input({required:true}) name!: string;
-  @Input({required:true}) userId! : string;
+  @Input({ required: true }) name!: string;
+  @Input({ required: true }) userId!: string;
 
   isAddingTask = false;
 
   //  @Input({required:true}) user!:string;
 
-  tasks = DUMMY_TASKS;
-
-  get selectedUserTask(){
-    return this.tasks.filter((task) => task.userId === this.userId);
+  get selectedUserTask() {
+    return this.tasksService.getUserTasks(this.userId);
   }
 
-  onCompleteTask(id:string){
-      this.tasks = this.tasks.filter((task)=> task.id!=id);
+
+  onCompleteTask(id: string) {
   }
 
-  onStartAddTask(){
+  onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCancleAddTask(){
+  onCancleAddTask() {
     this.isAddingTask = false;
   }
 
-  onAddTask(taskData:NewAddTask){
-    this.tasks.push({
-      id: new Date().getTime().toString(),
-      title:taskData.title,
-      summary:taskData.summary,
-      dueDate:taskData.date,
-      userId:this.userId
-    });
+  onAddTask(taskData: NewAddTask) {
     this.isAddingTask = false;
   }
 }
