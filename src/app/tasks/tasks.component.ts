@@ -49,7 +49,7 @@ export class TasksComponent {
     this.isAddingTask = false;
   }
 
-  onAddTask(taskData: NewAddTask) {
-    this.isAddingTask = false;
-  }
+  // onAddTask(taskData: NewAddTask) {
+  //   this.isAddingTask = false;
+  // }
 }
