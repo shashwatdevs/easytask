@@ -1,4 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { required } from '@angular/forms/signals';
+
+interface taskType {
+  id: string,
+  userId: string,
+  title: string,
+  summary: string
+  dueDate: string
+}
 
 @Component({
   selector: 'app-task',
@@ -8,5 +17,7 @@ import { Component } from '@angular/core';
 })
 export class TaskComponent {
 
-  
+  @Input({ required: true }) task!: taskType;
+
+
 }
