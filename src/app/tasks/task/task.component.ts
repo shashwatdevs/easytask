@@ -1,13 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { required } from '@angular/forms/signals';
-
-interface taskType {
-  id: string,
-  userId: string,
-  title: string,
-  summary: string
-  dueDate: string
-}
+import { TaskType } from './task.model';
 
 @Component({
   selector: 'app-task',
@@ -17,7 +10,7 @@ interface taskType {
 })
 export class TaskComponent {
 
-  @Input({ required: true }) task!: taskType;
+  @Input({ required: true }) task!: TaskType;
 
 
 }
