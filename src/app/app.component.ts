@@ -1,15 +1,16 @@
 import { Component, signal } from '@angular/core';
 // import { NgFor, NgIf } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from './user/user.component';
+// import { HeaderComponent } from './header/header.component';
+// import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users';
-import { TasksComponent } from './tasks/tasks.component';
+// import { TasksComponent } from './tasks/tasks.component';
 
 @Component({
   selector: 'app-root',
-  standalone:true,
+  // standalone:true,
+   standalone:false,
   // imports: [HeaderComponent, UserComponent, TasksComponent, NgFor, NgIf],
-  imports: [HeaderComponent, UserComponent, TasksComponent],
+  // imports: [HeaderComponent, UserComponent, TasksComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
