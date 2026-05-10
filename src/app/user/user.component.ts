@@ -2,13 +2,13 @@ import { Component, computed, Input, signal, input, Output, EventEmitter, output
 import { DUMMY_USERS } from '../dummy-users';
 import { required } from '@angular/forms/signals';
 import { User } from './user.model';
-import { CardComponent } from "../shared/card/card.component";
+// import { CardComponent } from "../shared/card/card.component";
 
 // const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length);
 @Component({
   selector: 'app-user',
-  imports: [CardComponent],
-  standalone: true,
+  // imports: [CardComponent],
+  standalone: false,
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
